@@ -1,0 +1,15 @@
+{% extends 'product/base.html' %}
+{% block content %}
+<div class="mx-auto" style="width: 300px;">
+<h1>{{ product.title }}<br><br></h1>
+    {{ product.description }}<br>
+    {{ product.price }}
+    <br><br>
+    <form action="{% url "cart:cart_add" product.id %}" method="post">
+ {{ cart_product_form }}
+ {% csrf_token %}
+ <input type="submit" value="Add to cart">
+</form>
+    <br>
+<a href="{% url 'home' %}" class="btn btn-primary">Back to home page</a>
+{% endblock %}
