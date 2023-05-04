@@ -17,7 +17,7 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  override_quantity=cd['override'])
-    return HttpResponseRedirect(reverse('detail', args=[str(product_id)]))
+    return HttpResponseRedirect(reverse('cart:cart_detail'))
 
 
 @require_POST
